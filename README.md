@@ -14,9 +14,7 @@ FYP Assistant is an AI-powered backend system built with Django REST Framework t
 ## 🛠️ Tech Stack
 
 - **Backend Framework:** Django + Django REST Framework
-- **Database:** PostgreSQL (recommended)
+- **Database:** PostgreSQL
 - **Authentication:** Token-based (JWT ready)
-- **Deployment:** Render, Railway, or Heroku compatible
-
-## 📁 Project Structure
+- **Deployment:** Render
 
