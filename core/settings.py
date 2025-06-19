@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'user',
     'project',
     # habirhiei
+    # ABHUSDHU
 ]
 
 AUTH_USER_MODEL = 'user.User'
