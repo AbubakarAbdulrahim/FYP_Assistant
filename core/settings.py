@@ -11,7 +11,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 # Allowed hosts (add your domain or Render subdomain)
-ALLOWED_HOSTS = ['https://fyp-assistant.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['https://fyp-assistant.onrender.com', 'localhost', '127.0.0.1:8000']
 
 # Installed apps
 INSTALLED_APPS = [
@@ -26,7 +26,7 @@ INSTALLED_APPS = [
 # Middleware (include WhiteNoise for static files)
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # ✅ Add this
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
