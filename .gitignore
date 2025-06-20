@@ -1,12 +1,25 @@
-.env
+# database and migrations
 db.sqlite3
 */migrations/
-env/
-.vscode/
-.idea/
-static/
-media/
-*.log
+
+# Python cache files
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
+
+# Bytecode and compiled files
+*.so
+*.egg-info/
+*.egg
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# OS-specific files
+*.DS_Store
+Thumbs.db
+
+# dotenv and secrets
+.env
