@@ -10,3 +10,6 @@ media/
 __pycache__/
 *.pyc
 *.pyo
+*.pdf
+*.docx
+documents/

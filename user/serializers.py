@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate
 from .models import User
 from rest_framework_simplejwt.tokens import RefreshToken
 
-
+# register serializer
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -23,6 +23,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         return User.objects.create_user(**validated_data)
 
+# login serializer
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField()
@@ -38,6 +39,7 @@ class LoginSerializer(serializers.Serializer):
             return {}  # actual data returned in view
         raise serializers.ValidationError("Invalid email or password")
 
+# user profile serializer
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
