@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 from decouple import config
 import dj_database_url
+from datetime import timedelta
 
 # Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -11,11 +12,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 # Allowed hosts (add your domain or Render subdomain)
-<<<<<<< HEAD
-ALLOWED_HOSTS = ['https://fyp-assistant.onrender.com', 'localhost', '127.0.0.1:8000']
-=======
 ALLOWED_HOSTS = ['https://fyp-assistant.onrender.com', 'localhost', '127.0.0.1']
->>>>>>> 7be2fd9f93c6b772e5f99207b5d095b1978c1708
 
 # Installed apps
 INSTALLED_APPS = [
@@ -25,16 +22,33 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework_simplejwt.token_blacklist',
+    'user',
+    'project',
 ]
+
+AUTH_USER_MODEL = 'user.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
+
 
 # Middleware (include WhiteNoise for static files)
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-<<<<<<< HEAD
     'whitenoise.middleware.WhiteNoiseMiddleware',
-=======
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # ✅ Add this
->>>>>>> 7be2fd9f93c6b772e5f99207b5d095b1978c1708
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -73,6 +87,7 @@ DATABASES = {
 }
 
 # Password validation
+# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
