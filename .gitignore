@@ -6,6 +6,8 @@ db.sqlite3
 __pycache__/
 *.py[cod]
 *.pyo
+*.pyc
+
 # Bytecode and compiled files
 *.so
 *.egg-info/
