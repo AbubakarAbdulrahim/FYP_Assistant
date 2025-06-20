@@ -4,7 +4,7 @@ from rest_framework import status, permissions
 from rest_framework_simplejwt.tokens import RefreshToken
 from .serializers import RegisterSerializer, LoginSerializer, UserSerializer
 
-
+# user register view
 class RegisterView(APIView):
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
@@ -13,7 +13,7 @@ class RegisterView(APIView):
             return Response({'message': 'User created'}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+# user login view
 class LoginView(APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
@@ -34,7 +34,7 @@ class LoginView(APIView):
             return response
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+# user logout view
 class LogoutView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
@@ -49,7 +49,7 @@ class LogoutView(APIView):
         except Exception:
             return Response({"detail": "Invalid token"}, status=status.HTTP_400_BAD_REQUEST)
 
-
+# user profile view
 class MeView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 

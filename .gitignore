@@ -6,7 +6,6 @@ db.sqlite3
 __pycache__/
 *.py[cod]
 *.pyo
-
 # Bytecode and compiled files
 *.so
 *.egg-info/
@@ -23,3 +22,6 @@ Thumbs.db
 
 # dotenv and secrets
 .env
+*.pdf
+*.docx
+documents/

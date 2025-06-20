@@ -6,7 +6,7 @@ from .serializers import (
     ProjectUpdateSerializer
 )
 
-
+# project list create view
 class ProjectListCreateView(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
@@ -21,7 +21,7 @@ class ProjectListCreateView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
-
+# project detail view
 class ProjectDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticated]
     lookup_url_kwarg = 'id'
