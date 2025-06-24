@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'user',
     'project',
     'feedback',
+    'reference',
     # habirhiei
     # ABHUSDHU
 ]
